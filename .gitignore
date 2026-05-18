@@ -13,6 +13,8 @@ env/
 .idea/
 
 # Data (large files)
+data/train/
+data/validation/
 data/*.parquet
 data/*.json
 data/*.csv
