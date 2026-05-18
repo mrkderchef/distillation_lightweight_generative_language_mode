@@ -1,0 +1,40 @@
+# Project Configuration
+# Knowledge Distillation for Lightweight Generative Language Models
+
+data:
+  dataset: "roneneldan/TinyStories"
+  max_length: 512
+  batch_size: 16
+  max_samples_train: null  # Set to integer to limit training samples
+  max_samples_val: null
+
+teacher:
+  model_name: "gpt2"
+  pretrained: true
+
+student:
+  vocab_size: 50257
+  n_layers: 4
+  n_heads: 4
+  hidden_size: 256
+  max_length: 512
+
+training:
+  epochs: 5
+  lr: 5.0e-4
+  weight_decay: 0.01
+  use_amp: true
+  save_path: "outputs/teacher.pt"
+
+distillation:
+  temperature: 2.0
+  alpha: 0.5
+  epochs: 10
+  lr: 5.0e-4
+  save_path: "outputs/student_distilled.pt"
+
+generation:
+  max_new_tokens: 100
+  temperature: 1.0
+  top_k: 50
+  top_p: 0.95
