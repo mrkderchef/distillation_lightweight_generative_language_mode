@@ -1,0 +1,57 @@
+{
+  "config": "config.yaml",
+  "device": "cuda",
+  "max_samples_val": 20,
+  "prompts": [
+    "Once upon a time",
+    "The little dog",
+    "She was very happy"
+  ],
+  "models": {
+    "student_baseline": {
+      "checkpoint": "outputs\\student_baseline.pt",
+      "metrics": {
+        "loss": 2.4799027156086924,
+        "perplexity": 11.940102775714509,
+        "num_parameters": 16156416,
+        "model_size_mb": 61.6318359375,
+        "total_tokens_evaluated": 3466
+      },
+      "samples": {
+        "Once upon a time": "Once upon a time, there was a little girl named Lily. She loved to play outside and play. One day,",
+        "The little dog": "The little dog was very hungry. He ran to the park to have lots of fun. Suddenly, he saw a",
+        "She was very happy": "She was very happy because it was raining. She was very sad because it was hard for her mom and not for dinner"
+      }
+    },
+    "student_distilled": {
+      "checkpoint": "outputs\\student_distilled_t15_a02.pt",
+      "metrics": {
+        "loss": 2.265707802579916,
+        "perplexity": 9.637943949041777,
+        "num_parameters": 16156416,
+        "model_size_mb": 61.6318359375,
+        "total_tokens_evaluated": 3466
+      },
+      "samples": {
+        "Once upon a time": "Once upon a time, there was a little boy named Timmy. Timmy had a big big box that he liked",
+        "The little dog": "The little dog was playing in the yard when he saw something strange. It was a big big box with lots of",
+        "She was very happy": "She was very happy, but she was nervous. She was going to the park to see the big slide. She wanted"
+      }
+    },
+    "student_distilled_old": {
+      "checkpoint": "outputs\\student_distilled.pt",
+      "metrics": {
+        "loss": 2.604836546886332,
+        "perplexity": 13.529013762586656,
+        "num_parameters": 16156416,
+        "model_size_mb": 61.6318359375,
+        "total_tokens_evaluated": 3466
+      },
+      "samples": {
+        "Once upon a time": "Once upon a time, there was a little girl named Lily. She loved to play outside and play outside. One day",
+        "The little dog": "The little dog was playing in the yard. He was playing in the park when he saw a big tree in the",
+        "She was very happy": "She was very happy. She was so excited to play in the park and play in the park. She wanted to play"
+      }
+    }
+  }
+}

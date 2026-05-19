@@ -1,0 +1,40 @@
+[2026-05-18 20:56:21] Command: C:\Users\marek\AppData\Local\Programs\Python\Python312\python.exe -u C:\Users\marek\Desktop\distilled_llm\scripts\train.py --config C:\Users\marek\Desktop\distilled_llm\config.yaml --stage distillation --device cuda
+Using device: cuda
+2026-05-18 20:56:31 | distillation | INFO | Starting distillation training...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 148/148 [00:00<00:00, 9355.94it/s]
+2026-05-18 20:56:35 | distillation | WARNING | No trained teacher found, using pretrained GPT-2 as teacher
+2026-05-18 20:56:35 | distillation | INFO | Teacher: 124,439,808 params
+2026-05-18 20:56:35 | distillation | INFO | Student: 16,156,416 params
+2026-05-18 20:56:35 | distillation | INFO | Compression: 7.7x
+Traceback (most recent call last):
+  File "C:\Users\marek\Desktop\distilled_llm\scripts\train.py", line 203, in <module>
+    train_distillation(config, device)
+  File "C:\Users\marek\Desktop\distilled_llm\scripts\train.py", line 156, in train_distillation
+    distiller = DistillationTrainer(
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\Desktop\distilled_llm\src\training\distillation.py", line 42, in __init__
+    self.teacher = teacher_model.to(device).eval()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 1383, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 964, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 1369, in convert
+    return t.to(
+           ^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\cuda\__init__.py", line 484, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+[2026-05-18 20:56:36] Exit code: 1

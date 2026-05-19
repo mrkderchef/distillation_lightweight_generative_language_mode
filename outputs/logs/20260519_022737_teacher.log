@@ -1,0 +1,35 @@
+[2026-05-19 02:27:37] Command: C:\Users\marek\Desktop\distilled_llm\.venv-rocm\Scripts\python.exe -u C:\Users\marek\Desktop\distilled_llm\scripts\train.py --config C:\Users\marek\Desktop\distilled_llm\config.yaml --stage teacher --device cuda
+Using device: cuda
+2026-05-19 02:27:46 | teacher_training | INFO | Starting teacher training...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 148/148 [00:00<00:00, 10971.70it/s]
+2026-05-19 02:27:50 | teacher_training | INFO | Teacher parameters: 124,439,808
+C:\Users\marek\Desktop\distilled_llm\src\training\trainer.py:31: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = GradScaler() if use_amp else None
+
+Training:   0%|          | 0/132483 [00:00<?, ?it/s]C:\Users\marek\Desktop\distilled_llm\src\training\trainer.py:47: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast():
+C:\Users\marek\Desktop\distilled_llm\.venv-rocm\Lib\site-packages\transformers\integrations\sdpa_attention.py:92: UserWarning: Mem Efficient attention on Current AMD GPU is still experimental. Enable it with TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1. (Triggered internally at C:\b\pytorch\aten\src\ATen\native\transformers\hip\sdp_utils.cpp:361.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+
+Training:   0%|          | 1/132483 [00:28<1040:18:32, 28.27s/it]
+Training:   0%|          | 2/132483 [00:34<561:24:22, 15.26s/it] 
+Training:   0%|          | 3/132483 [00:39<397:05:52, 10.79s/it]
+Training:   0%|          | 4/132483 [00:45<320:24:53,  8.71s/it]
+Training:   0%|          | 5/132483 [00:51<280:10:50,  7.61s/it]
+Training:   0%|          | 6/132483 [00:57<261:55:17,  7.12s/it]
+Training:   0%|          | 7/132483 [01:02<243:39:36,  6.62s/it]
+Training:   0%|          | 8/132483 [01:08<232:28:02,  6.32s/it]
+Training:   0%|          | 9/132483 [01:14<227:30:59,  6.18s/it]
+Training:   0%|          | 10/132483 [01:20<221:17:22,  6.01s/it]
+Training:   0%|          | 11/132483 [01:25<214:06:10,  5.82s/it]
+Training:   0%|          | 12/132483 [01:30<210:19:23,  5.72s/it]
+Training:   0%|          | 13/132483 [01:36<208:26:04,  5.66s/it]
+Training:   0%|          | 14/132483 [01:42<208:40:04,  5.67s/it]
+Training:   0%|          | 15/132483 [01:47<210:19:10,  5.72s/it]
+Training:   0%|          | 16/132483 [01:53<212:49:19,  5.78s/it]
+Training:   0%|          | 17/132483 [01:59<213:40:37,  5.81s/it]
+Training:   0%|          | 18/132483 [02:05<211:26:31,  5.75s/it]

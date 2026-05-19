@@ -1,0 +1,34 @@
+[2026-05-18 20:56:07] Command: C:\Users\marek\AppData\Local\Programs\Python\Python312\python.exe -u C:\Users\marek\Desktop\distilled_llm\scripts\train.py --config C:\Users\marek\Desktop\distilled_llm\config.yaml --stage student_baseline --device cuda
+Using device: cuda
+2026-05-18 20:56:17 | student_baseline | INFO | Starting student baseline training...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-18 20:56:21 | student_baseline | INFO | Student parameters: 16,156,416
+Traceback (most recent call last):
+  File "C:\Users\marek\Desktop\distilled_llm\scripts\train.py", line 200, in <module>
+    train_student_baseline(config, device)
+  File "C:\Users\marek\Desktop\distilled_llm\scripts\train.py", line 100, in train_student_baseline
+    trainer = Trainer(
+              ^^^^^^^^
+  File "C:\Users\marek\Desktop\distilled_llm\src\training\trainer.py", line 24, in __init__
+    self.model = model.to(device)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 1383, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 964, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 1369, in convert
+    return t.to(
+           ^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\cuda\__init__.py", line 484, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+[2026-05-18 20:56:21] Exit code: 1

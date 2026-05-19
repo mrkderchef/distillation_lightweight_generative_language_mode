@@ -1,0 +1,7 @@
+[2026-05-19 02:24:31] Command: C:\Users\marek\Desktop\distilled_llm\.venv-rocm\Scripts\python.exe -u C:\Users\marek\Desktop\distilled_llm\scripts\train.py --config C:\Users\marek\Desktop\distilled_llm\config.yaml --stage teacher --device cuda
+Using device: cuda
+2026-05-19 02:24:41 | teacher_training | INFO | Starting teacher training...
+'[WinError 10013] Der Zugriff auf einen Socket war aufgrund der Zugriffsrechte des Sockets unzulässig' thrown while requesting HEAD https://huggingface.co/datasets/roneneldan/TinyStories/resolve/f54c09fd23315a6f9c86f9dc80f725de7d8f9c64/TinyStories.py
+Retrying in 1s [Retry 1/5].
+Using the latest cached version of the dataset since roneneldan/TinyStories couldn't be found on the Hugging Face Hub
+Found the latest cached dataset configuration 'default' at C:\Users\marek\.cache\huggingface\datasets\roneneldan___tiny_stories\default\0.0.0\f54c09fd23315a6f9c86f9dc80f725de7d8f9c64 (last modified on Mon May 18 20:54:43 2026).

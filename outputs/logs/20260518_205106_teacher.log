@@ -1,0 +1,73 @@
+[2026-05-18 20:51:06] Command: C:\Users\marek\AppData\Local\Programs\Python\Python312\python.exe -u C:\Users\marek\Desktop\distilled_llm\scripts\train.py --config C:\Users\marek\Desktop\distilled_llm\config.yaml --stage teacher --device cuda
+Using device: cuda
+2026-05-18 20:51:38 | teacher_training | INFO | Starting teacher training...
+C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\huggingface_hub\file_download.py:138: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\marek\.cache\huggingface\hub\models--gpt2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\huggingface_hub\file_download.py:138: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\marek\.cache\huggingface\hub\datasets--roneneldan--TinyStories. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+
+Generating train split:   0%|          | 0/2119719 [00:00<?, ? examples/s]
+Generating train split:   3%|2         | 62000/2119719 [00:00<00:03, 606240.47 examples/s]
+Generating train split:   7%|6         | 141000/2119719 [00:00<00:02, 706125.38 examples/s]
+Generating train split:  10%|#         | 215000/2119719 [00:00<00:02, 719751.64 examples/s]
+Generating train split:  15%|#5        | 324000/2119719 [00:00<00:02, 702973.44 examples/s]
+Generating train split:  19%|#8        | 397000/2119719 [00:00<00:02, 704638.37 examples/s]
+Generating train split:  22%|##2       | 471000/2119719 [00:00<00:02, 709164.36 examples/s]
+Generating train split:  27%|##7       | 572930/2119719 [00:00<00:02, 656641.40 examples/s]
+Generating train split:  32%|###1      | 672930/2119719 [00:01<00:02, 647787.56 examples/s]
+Generating train split:  35%|###5      | 745930/2119719 [00:01<00:02, 667699.66 examples/s]
+Generating train split:  39%|###8      | 821930/2119719 [00:01<00:01, 690364.67 examples/s]
+Generating train split:  43%|####2     | 903930/2119719 [00:01<00:01, 724213.84 examples/s]
+Generating train split:  48%|####8     | 1021930/2119719 [00:01<00:01, 739500.51 examples/s]
+Generating train split:  52%|#####2    | 1106860/2119719 [00:01<00:01, 676415.42 examples/s]
+Generating train split:  56%|#####5    | 1183860/2119719 [00:01<00:01, 696052.11 examples/s]
+Generating train split:  60%|#####9    | 1265860/2119719 [00:01<00:01, 722991.27 examples/s]
+Generating train split:  65%|######4   | 1373860/2119719 [00:01<00:01, 719480.53 examples/s]
+Generating train split:  69%|######9   | 1466860/2119719 [00:02<00:00, 746873.02 examples/s]
+Generating train split:  75%|#######4  | 1585860/2119719 [00:02<00:00, 758675.64 examples/s]
+Generating train split:  79%|#######9  | 1679790/2119719 [00:02<00:00, 711334.09 examples/s]
+Generating train split:  83%|########3 | 1767790/2119719 [00:02<00:00, 748567.31 examples/s]
+Generating train split:  88%|########7 | 1856790/2119719 [00:02<00:00, 777451.67 examples/s]
+Generating train split:  91%|#########1| 1936790/2119719 [00:02<00:00, 780744.37 examples/s]
+Generating train split:  95%|#########5| 2016790/2119719 [00:02<00:00, 784112.55 examples/s]
+Generating train split: 100%|##########| 2119719/2119719 [00:02<00:00, 759914.91 examples/s]
+Generating train split: 100%|##########| 2119719/2119719 [00:02<00:00, 722301.93 examples/s]
+
+Generating validation split:   0%|          | 0/21990 [00:00<?, ? examples/s]
+Generating validation split: 100%|##########| 21990/21990 [00:00<00:00, 588793.56 examples/s]
+
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]
+Loading weights: 100%|##########| 148/148 [00:00<00:00, 9169.50it/s]
+2026-05-18 20:56:06 | teacher_training | INFO | Teacher parameters: 124,439,808
+Traceback (most recent call last):
+  File "C:\Users\marek\Desktop\distilled_llm\scripts\train.py", line 197, in <module>
+    train_teacher(config, device)
+  File "C:\Users\marek\Desktop\distilled_llm\scripts\train.py", line 52, in train_teacher
+    trainer = Trainer(
+              ^^^^^^^^
+  File "C:\Users\marek\Desktop\distilled_llm\src\training\trainer.py", line 24, in __init__
+    self.model = model.to(device)
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 1383, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 933, in _apply
+    module._apply(fn)
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 964, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\nn\modules\module.py", line 1369, in convert
+    return t.to(
+           ^^^^^
+  File "C:\Users\marek\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\cuda\__init__.py", line 484, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled
+
+[2026-05-18 20:56:07] Exit code: 1
