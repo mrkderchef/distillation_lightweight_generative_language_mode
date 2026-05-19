@@ -28,11 +28,11 @@ training:
   save_path: "outputs/teacher.pt"
 
 distillation:
-  temperature: 2.0
-  alpha: 0.5
-  epochs: 2
-  lr: 5.0e-4
-  save_path: "outputs/student_distilled.pt"
+  temperature: 1.5
+  alpha: 0.3
+  epochs: 3
+  lr: 2.0e-4
+  save_path: "outputs/student_distilled_t15_a03_lr2e4.pt"
 
 generation:
   max_new_tokens: 100

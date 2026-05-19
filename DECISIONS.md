@@ -105,15 +105,35 @@ This document records all key decisions made during the project setup and implem
 
 | Parameter | Value | Rationale |
 |---|---|---|
-| Temperature (T) | 2.0 | Moderate softening; T=1 too sharp, T>5 too uniform for this vocab size |
-| Alpha (α) | 0.5 | Equal weight to distillation and CE; will sweep in experiments |
-| Learning Rate | 5e-4 | Standard for small transformers with AdamW |
+| Temperature (T) | 1.5 | Best early results came from slightly softened teacher distributions without making targets too uniform |
+| Alpha | 0.2-0.3 | Lower teacher weight worked better than equal weighting; 0.2 is best so far |
+| Learning Rate | 2e-4-3e-4 | Lower distillation LR was more stable than the initial 5e-4 setting |
 | Weight Decay | 0.01 | Light regularization, standard for language models |
 | Batch Size | 16 | Fits in 8GB VRAM with mixed precision |
 | Context Length | 512 | Covers 95%+ of TinyStories, balances memory vs coverage |
-| Training Epochs (Teacher) | 3 | GPT-2 is pretrained; fine-tuning converges fast on TinyStories |
-| Training Epochs (Student) | 10 | Student needs more epochs to converge from scratch |
+| Training Epochs (Teacher) | 1 | GPT-2 is pretrained; pilot run fine-tunes quickly on a 30k TinyStories subset |
+| Training Epochs (Student Baseline) | 1 | Baseline pilot run is used as a comparable reference |
+| Distillation Epochs | 3 | Gives the student more time to absorb teacher signal without making runs too long |
 | Mixed Precision | FP16 | 2x memory savings, no quality loss for training |
+
+### Pilot Results Update
+
+The original default table above has been revised by pilot experiments on a
+30k-example TinyStories training subset. All student checkpoints below use the
+same ~16M parameter architecture and were evaluated on the same 1000-example
+TinyStories validation subset.
+
+| Model | Distillation settings | Loss | Perplexity |
+|---|---|---:|---:|
+| Student baseline | CE only | 2.6797 | 14.58 |
+| Distilled old | T=2.0, alpha=0.5, lr=5e-4 | 2.7596 | 15.79 |
+| Distilled current config | T=1.5, alpha=0.3, lr=2e-4 | 2.6268 | 13.83 |
+| Distilled best so far | T=1.5, alpha=0.2, lr=3e-4 | 2.4668 | 11.78 |
+
+**Decision:** Keep `outputs/student_distilled_t15_a02.pt` as the best checkpoint
+so far. The experiment suggests this setup benefits from conservative teacher
+weighting; equal CE/KL weighting over-emphasized the teacher signal and performed
+worse than the baseline.
 
 ---
 

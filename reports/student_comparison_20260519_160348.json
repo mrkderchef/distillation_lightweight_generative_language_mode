@@ -1,0 +1,72 @@
+{
+  "config": "config.yaml",
+  "device": "cuda",
+  "max_samples_val": 1000,
+  "prompts": [
+    "Once upon a time",
+    "The little dog",
+    "She was very happy"
+  ],
+  "models": {
+    "student_baseline": {
+      "checkpoint": "outputs\\student_baseline.pt",
+      "metrics": {
+        "loss": 2.679659422136599,
+        "perplexity": 14.580126781758965,
+        "num_parameters": 16156416,
+        "model_size_mb": 61.6318359375,
+        "total_tokens_evaluated": 191696
+      },
+      "samples": {
+        "Once upon a time": "Once upon a time, there was a little girl named Lily. She loved to play outside and play. One day, she saw a big hole in the ground. The rock was very shiny and pretty. Lily wanted to go to the tree with her toys.\n\nThe next day, she saw a big tree. She wanted to play with the rock, but she didn't want to be lost. She saw the",
+        "The little dog": "The little dog was very hungry. He ran to the park to have lots of fun. Suddenly, he saw a big dog. He said, \"Let's play with!\" The dog was sad.\n\nThe dog was scared. He jumped and ran until he saw a little boy. He thought the dog was very hungry. He wanted to go on the dog, but he was too fast. He saw his",
+        "She was very happy": "She was very happy because it was raining. She was very sad because it was hard for her mom and not for dinner.\n\nAt the end, she asked her mom for dinner, but she couldn't see it.\n\nHer mom was happy to see the candy and started to argue. She was very scared, but her mom had to go to the store. But her mom heard her. She saw the"
+      }
+    },
+    "student_distilled": {
+      "checkpoint": "outputs\\student_distilled_t15_a03_lr2e4.pt",
+      "metrics": {
+        "loss": 2.626836587581558,
+        "perplexity": 13.82995079163219,
+        "num_parameters": 16156416,
+        "model_size_mb": 61.6318359375,
+        "total_tokens_evaluated": 191696
+      },
+      "samples": {
+        "Once upon a time": "Once upon a time, there was a little boy named Timmy. Timmy had a big big dress that he loved to play with. He loved to play with his crayons, and even even when he was playing. One day, Timmy's mommy told him to help him get a picture of a picture. Timmy's mommy said, \"Let's play with the book together.\" Timmy",
+        "The little dog": "The little dog was very hungry. He wanted to help. He put on his hand and put it on his hand. He ran to the kitchen and looked at the kitchen. He saw a big tomato on the ground. He felt sad and cried for help.\n\nThe cat had an idea. She asked the cat to help. The cat smiled and said, \"Don't worry, the cat. I'll",
+        "She was very happy": "She was very happy. She was three years old and very tired. She had never seen before. She felt so dizzy and ran to the garden. She asked her mom for help, but she couldn't find it.\n\nShe called her mom, \"Mommy, can I help you.\" Her mommy said, \"I'm not sure you can help you find a big, but you'll be patient"
+      }
+    },
+    "student_distilled_old": {
+      "checkpoint": "outputs\\student_distilled.pt",
+      "metrics": {
+        "loss": 2.7595548913456165,
+        "perplexity": 15.792811866340017,
+        "num_parameters": 16156416,
+        "model_size_mb": 61.6318359375,
+        "total_tokens_evaluated": 191696
+      },
+      "samples": {
+        "Once upon a time": "Once upon a time, there was a little girl named Lily. She loved to play outside and play outside. One day, she saw a big rock in the dirt. She wanted to see it, so she ran to the ground.\n\n\"Look, Lily!\" said Lily. \"What are you doing?\"\n\nLily said, \"I don't know, Lily. I want to play with you.\"",
+        "The little dog": "The little dog was playing in the yard. He was playing in the park when he saw a big tree in the garden. The tree was very bright and tall. The bird wanted to take it home.\n\nThe bird felt sad and cried for the bird. The bird said, \"Don't worry, I will find it. I will go to the tree.\"\n\nThe bird was sad, but the",
+        "She was very happy": "She was very happy. She was so excited to play in the park and play in the park. She wanted to play with the slide on the slide, but it was too late. She was sad and wanted to see the slide.\n\nShe wanted to play with her mom, but her mom said, \"Mom, I'm not hungry. It's not fun to play with your ball. It looks fun for"
+      }
+    },
+    "student_distilled_t15_a02": {
+      "checkpoint": "outputs\\student_distilled_t15_a02.pt",
+      "metrics": {
+        "loss": 2.466789395284965,
+        "perplexity": 11.78455051567159,
+        "num_parameters": 16156416,
+        "model_size_mb": 61.6318359375,
+        "total_tokens_evaluated": 191696
+      },
+      "samples": {
+        "Once upon a time": "Once upon a time, there was a little boy named Timmy. Timmy had a big big box that he liked to play with. One day, Timmy's mom told him, \"That's a good thing to help you. If you help me open the box, you can help me.\"\n\nTimmy felt better. He decided to ask his mommy, \"Mommy, can we make a",
+        "The little dog": "The little dog was playing in the yard when he saw something strange. It was a big big box with lots of things. The little boy wanted to play with the box, so he said, \u00e2\u20ac\u0153Let\u00e2\u20ac\u2122s take the box and look inside.\u00e2\u20ac\n\nThe little boy shook the box. He did not want to know what it was, but then he found a small",
+        "She was very happy": "She was very happy, but she was nervous. She was going to the park to see the big slide. She wanted to go on the slide, but she was nervous.\n\nShe was so excited to see the slide. She climbed up and reached the top. She watched the slide slide. She was so excited she could hear her mom come. She ran and ran to her mom. Her mom said, \""
+      }
+    }
+  }
+}

@@ -57,12 +57,12 @@ project-root/
 
 | Property | Value |
 |---|---|
-| Parameters | ~5M–20M |
-| Layers | 2–6 |
-| Hidden Size | 256–384 |
+| Parameters | ~16M |
+| Layers | 4 |
+| Hidden Size | 256 |
 | Attention Heads | 4 |
-| Context Length | 256–512 |
-| FP32 Size | ~20–80MB |
+| Context Length | 512 |
+| FP32 Size | ~65MB |
 
 ---
 
@@ -152,17 +152,28 @@ Edit `config.yaml` to adjust hyperparameters:
 data:
   max_length: 512
   batch_size: 16
+  max_samples_train: 30000
+  max_samples_val: 1000
 
 student:
   n_layers: 4
   n_heads: 4
   hidden_size: 256
 
+training:
+  epochs: 1
+  student_baseline_epochs: 1
+
 distillation:
-  temperature: 2.0
-  alpha: 0.5
-  epochs: 10
+  temperature: 1.5
+  alpha: 0.3
+  epochs: 3
+  lr: 2.0e-4
 ```
+
+Best validation result so far used `temperature=1.5`, `alpha=0.2`,
+`epochs=3`, and `lr=3.0e-4`, saved as
+`outputs/student_distilled_t15_a02.pt`.
 
 ### Training the Teacher
 
@@ -178,7 +189,7 @@ val_loader = get_dataloader("validation", tokenizer, batch_size=16)
 
 teacher = TeacherModel(pretrained=True)
 trainer = Trainer(teacher, train_loader, val_loader)
-trainer.train(num_epochs=5, save_path="outputs/teacher.pt")
+trainer.train(num_epochs=1, save_path="outputs/teacher.pt")
 ```
 
 ### Distillation
@@ -193,11 +204,28 @@ distiller = DistillationTrainer(
     student_model=student,
     train_dataloader=train_loader,
     val_dataloader=val_loader,
-    temperature=2.0,
-    alpha=0.5,
+    temperature=1.5,
+    alpha=0.3,
 )
-distiller.train(num_epochs=10, save_path="outputs/student_distilled.pt")
+distiller.train(num_epochs=3, save_path="outputs/student_distilled_t15_a03_lr2e4.pt")
 ```
+
+### Comparing Student Runs
+
+Compare baseline and distilled checkpoints on the same validation subset:
+
+```bash
+python scripts/compare_students.py --config config.yaml --device cuda --include-old-distilled
+```
+
+Current 1000-sample validation comparison:
+
+| Model | Loss | Perplexity | Notes |
+|---|---:|---:|---|
+| Student baseline | 2.6797 | 14.58 | Cross-entropy only |
+| Distilled old | 2.7596 | 15.79 | `T=2.0`, `alpha=0.5`, `lr=5e-4` |
+| Distilled current config | 2.6268 | 13.83 | `T=1.5`, `alpha=0.3`, `lr=2e-4` |
+| Distilled best so far | 2.4668 | 11.78 | `T=1.5`, `alpha=0.2`, `lr=3e-4` |
 
 ### Text Generation
 
@@ -227,7 +255,9 @@ print(text)
 
 ## Hardware Requirements
 
-- GPU with at least 8GB VRAM recommended (e.g., NVIDIA RTX 3060+)
+- GPU with at least 8GB VRAM recommended. NVIDIA CUDA and AMD ROCm are both
+  supported through PyTorch's `cuda` device name when the matching PyTorch build
+  is installed.
 - CPU training possible but significantly slower
 - Mixed precision (FP16) supported for faster training
 
