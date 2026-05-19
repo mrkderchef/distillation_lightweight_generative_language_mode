@@ -124,6 +124,26 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Train all three models unattended
+
+Run teacher training, student baseline training, and distillation sequentially:
+
+```bash
+python scripts/train_all.py --config config.yaml
+```
+
+Logs are written to `outputs/logs/`. If one stage fails, the runner stops so the
+later results are not built on a broken checkpoint. To keep going anyway:
+
+```bash
+python scripts/train_all.py --config config.yaml --continue-on-error
+```
+
+To force a specific device, pass `--device cuda` or `--device cpu`. If your
+installed PyTorch build has no GPU backend, use CPU or install a CUDA/ROCm-enabled
+PyTorch build first. PyTorch uses `cuda` as the device name for both NVIDIA CUDA
+and AMD ROCm builds, so ROCm training still uses `--device cuda`.
+
 ### Configuration
 
 Edit `config.yaml` to adjust hyperparameters:

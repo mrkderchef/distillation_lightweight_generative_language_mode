@@ -5,8 +5,8 @@ data:
   dataset: "roneneldan/TinyStories"
   max_length: 512
   batch_size: 16
-  max_samples_train: null  # Set to integer to limit training samples
-  max_samples_val: null
+  max_samples_train: 30000  # Approx. 12h ROCm overnight run on RX 7700 XT
+  max_samples_val: 1000
 
 teacher:
   model_name: "gpt2"
@@ -20,7 +20,8 @@ student:
   max_length: 512
 
 training:
-  epochs: 5
+  epochs: 1
+  student_baseline_epochs: 1
   lr: 5.0e-4
   weight_decay: 0.01
   use_amp: true
@@ -29,7 +30,7 @@ training:
 distillation:
   temperature: 2.0
   alpha: 0.5
-  epochs: 10
+  epochs: 2
   lr: 5.0e-4
   save_path: "outputs/student_distilled.pt"
 

@@ -109,7 +109,11 @@ def train_student_baseline(config, device):
 
     save_path = "outputs/student_baseline.pt"
     Path(save_path).parent.mkdir(parents=True, exist_ok=True)
-    trainer.train(num_epochs=config["distillation"]["epochs"], save_path=save_path)
+    baseline_epochs = config["training"].get(
+        "student_baseline_epochs",
+        config["distillation"]["epochs"],
+    )
+    trainer.train(num_epochs=baseline_epochs, save_path=save_path)
 
     # Evaluate
     metrics = evaluate_model(student, val_loader, device=device)
