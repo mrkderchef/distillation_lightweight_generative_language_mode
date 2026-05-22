@@ -1,7 +1,7 @@
 {
   "sweep_directory": "outputs/config_sweeps/20260521_211942",
   "stage": "distillation",
-  "completed_runs_at_commit_time": 6,
+  "completed_runs": 8,
   "runs": [
     {
       "run": 1,
@@ -44,11 +44,25 @@
       "val_loss_by_epoch": [3.8618, 3.1546, 2.8186],
       "final_perplexity": 16.73,
       "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_2p0.pt"
+    },
+    {
+      "run": 7,
+      "temperature": 2.5,
+      "val_loss_by_epoch": [4.1977, 3.4143, 3.0267],
+      "final_perplexity": 20.6,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_2p5.pt"
+    },
+    {
+      "run": 8,
+      "temperature": 3.0,
+      "val_loss_by_epoch": [4.3869, 3.5836, 3.132],
+      "final_perplexity": 22.86,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_3p0.pt"
     }
   ],
-  "best_completed_run": {
+  "best_run": {
     "temperature": 1.25,
     "final_perplexity": 12.41
   },
-  "takeaway": "Lower distillation temperatures performed best in the first six completed runs; temperature 1.0 and 1.25 clearly outperformed temperatures 1.5 and above."
+  "takeaway": "Lower distillation temperatures performed best; temperature 1.0 and 1.25 clearly outperformed temperatures 1.5 and above."
 }

@@ -4,7 +4,7 @@ Sweep directory: `outputs/config_sweeps/20260521_211942`
 
 Stage: `distillation`
 
-Completed runs at commit time: 6 of 8
+Completed runs: 8 of 8
 
 | Run | Temperature | Epoch 1 Val Loss | Epoch 2 Val Loss | Epoch 3 Val Loss | Final Perplexity | Checkpoint |
 |---:|---:|---:|---:|---:|---:|---|
@@ -14,7 +14,9 @@ Completed runs at commit time: 6 of 8
 | 4 | 1.50 | 3.4870 | 2.9188 | 2.6358 | 13.93 | `outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_1p5.pt` |
 | 5 | 1.75 | 3.6938 | 3.0244 | 2.7217 | 15.18 | `outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_1p75.pt` |
 | 6 | 2.00 | 3.8618 | 3.1546 | 2.8186 | 16.73 | `outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_2p0.pt` |
+| 7 | 2.50 | 4.1977 | 3.4143 | 3.0267 | 20.60 | `outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_2p5.pt` |
+| 8 | 3.00 | 4.3869 | 3.5836 | 3.1320 | 22.86 | `outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_3p0.pt` |
 
-Best completed run so far: `temperature=1.25` with final perplexity `12.41`.
+Best run: `temperature=1.25` with final perplexity `12.41`.
 
-Intermediate takeaway: this sweep favors lower distillation temperatures. Results degrade noticeably from `temperature=1.5` onward, with `temperature=1.0` and `temperature=1.25` clearly outperforming the higher-temperature runs completed so far.
+Final takeaway: this sweep favors lower distillation temperatures. `temperature=1.0` and `temperature=1.25` clearly outperform the higher-temperature runs, while results degrade noticeably from `temperature=1.5` onward.
