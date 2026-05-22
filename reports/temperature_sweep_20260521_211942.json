@@ -1,0 +1,54 @@
+{
+  "sweep_directory": "outputs/config_sweeps/20260521_211942",
+  "stage": "distillation",
+  "completed_runs_at_commit_time": 6,
+  "runs": [
+    {
+      "run": 1,
+      "temperature": 0.75,
+      "val_loss_by_epoch": [3.4919, 2.9461, 2.6767],
+      "final_perplexity": 14.5,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_0p75.pt"
+    },
+    {
+      "run": 2,
+      "temperature": 1.0,
+      "val_loss_by_epoch": [3.2657, 2.7859, 2.5247],
+      "final_perplexity": 12.46,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_1p0.pt"
+    },
+    {
+      "run": 3,
+      "temperature": 1.25,
+      "val_loss_by_epoch": [3.3357, 2.7876, 2.5208],
+      "final_perplexity": 12.41,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_1p25.pt"
+    },
+    {
+      "run": 4,
+      "temperature": 1.5,
+      "val_loss_by_epoch": [3.487, 2.9188, 2.6358],
+      "final_perplexity": 13.93,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_1p5.pt"
+    },
+    {
+      "run": 5,
+      "temperature": 1.75,
+      "val_loss_by_epoch": [3.6938, 3.0244, 2.7217],
+      "final_perplexity": 15.18,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_1p75.pt"
+    },
+    {
+      "run": 6,
+      "temperature": 2.0,
+      "val_loss_by_epoch": [3.8618, 3.1546, 2.8186],
+      "final_perplexity": 16.73,
+      "checkpoint": "outputs/config_sweeps/20260521_211942/checkpoints/student_distilled_temp_2p0.pt"
+    }
+  ],
+  "best_completed_run": {
+    "temperature": 1.25,
+    "final_perplexity": 12.41
+  },
+  "takeaway": "Lower distillation temperatures performed best in the first six completed runs; temperature 1.0 and 1.25 clearly outperformed temperatures 1.5 and above."
+}

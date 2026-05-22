@@ -144,6 +144,22 @@ installed PyTorch build has no GPU backend, use CPU or install a CUDA/ROCm-enabl
 PyTorch build first. PyTorch uses `cuda` as the device name for both NVIDIA CUDA
 and AMD ROCm builds, so ROCm training still uses `--device cuda`.
 
+### Run a temperature sweep
+
+Run eight distillation jobs sequentially with different temperatures:
+
+```bash
+python scripts/run_config_sweep.py --config config.yaml --device cuda
+```
+
+By default this tests `0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.5, 3.0`. Generated
+configs, logs, and checkpoints are written to `outputs/config_sweeps/<timestamp>/`.
+To choose your own temperatures:
+
+```bash
+python scripts/run_config_sweep.py --config config.yaml --device cuda --temperatures 1.0 1.5 2.0 2.5
+```
+
 ### Configuration
 
 Edit `config.yaml` to adjust hyperparameters:
